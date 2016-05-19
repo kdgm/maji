@@ -7,10 +7,11 @@ class Page extends Marionette.LayoutView
   canGoBack: ->
     @_parent.canGoBack()
 
-  transitionBack: (route, options) ->
+  transitionBack: (route, options = {}) ->
+    options.transition ||= @transition
     @_parent.goBack(route, options)
 
   transitionHome: (route, transition) ->
-    @_parent.goHome(route, transition)
+    @_parent.goHome(route, transition ||= @transition)
 
 module.exports = Page

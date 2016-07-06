@@ -87,6 +87,7 @@ class AnimatableRegion extends Marionette.Region
     @navigationOptions = null
 
     if ! @showTransitions || ! @transition
+      view.trigger('transitioned');
       return super(view)
 
     newPage = view
